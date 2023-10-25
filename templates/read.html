@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view table</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Name</th>
+    </tr>
+    {% for x in data %}
+    <tr>
+        <td><h1>{{ x.title }}</h1></td>
+        <td><h1>{{ x.name }}</h1></td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>Title</th>-->
+
+<!--    </tr>-->
+<!--    {% for x in data1 %}-->
+<!--    <tr>-->
+<!--        <td><h1>{{ x.title }}</h1></td>-->
+
+<!--    </tr>-->
+<!--    {% endfor %}-->
+
+<!--</table>-->
+
+</body>
+</html>
