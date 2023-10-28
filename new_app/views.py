@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django.utils import timezone
 
 from new_app.forms import TodoForm
 from new_app.models import Todo
@@ -23,23 +24,11 @@ def create(request):
             form1.save()
             return redirect('readuser')
         else:
-            messages.info(request,"The date cannot be in the past!")
+            form = form1
+    else:
+        initial_data={'date': timezone.now().date()}
+        form = TodoForm(initial=initial_data)
     return render(request, "add.html", {"form": form})
-
-
-# def new_create(request):
-#     form_a = UserForm()
-#     if request.method == "POST":
-#         form2 = UserForm(request.POST)
-#         if form2.is_valid():
-#             form2.save()
-#     return render(request, "index.html", {"form": form_a})
-
-
-# read data
-# def read(request):
-#     data = Todo.objects.all()
-#     return render(request, "read.html", {"data": data})
 
 
 def readuser(request):
@@ -65,4 +54,6 @@ def update(request, id):
         if form1.is_valid():
             form1.save()
             return redirect("readuser")
+        # else:
+        #     messages.info(request,"Due invalid")
     return render(request, "update.html", {'form': form})

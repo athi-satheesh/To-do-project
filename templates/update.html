@@ -1,23 +1,41 @@
 {% extends 'index_admin.html' %}
 {% load crispy_forms_filters %}
 {% block content %}
+<style>
+            #aa{
+                background-color: blue;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5px;
+
+            }
+        </style>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <h1 class="text-center display-4">Update Todo</h1>
         </div>
-        <div class="col-md-12">
-            <form method="POST" action="#">
+        <div class="col-md-8">
+            <form method="POST">
                 {% csrf_token %}
                 {{ form|crispy }}
     <div class="col-lg-6">
         {% for message in messages %}
-    <div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert">
        {{message}}
-    </div>
     {% endfor %}
-                <input type="submit" class="btn btn-primary btn-block" value="Update"/>
+    </div>
+        <button type="submit"  id="aa">Update To-do</button>
+    </div>
+
             </form>
+
         </div>
 {% endblock %}
 
